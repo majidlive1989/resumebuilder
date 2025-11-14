@@ -3,6 +3,8 @@ import Header from "../component/Header";
 import Hero from "../component/Hero";
 import Brands from "../component/Brands";
 import Features from "../component/Features";
+import Footer from "../component/Footer";
+import PreFooter from "../component/PreFooter";
 
 const Home = () => {
   return (
@@ -20,6 +22,8 @@ const Home = () => {
         <Brands />
       </div>
       <Features />
+      <PreFooter />
+      <Footer />
     </>
   );
 };
