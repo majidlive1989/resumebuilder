@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col justify-center items-center bg-white backdrop-blur-3xl backdrop-green pt-25">
+    <div className="flex flex-col justify-center items-center bg-white backdrop-blur-3xl backdrop-green pt-18">
       <div className="flex flex-row justify-between gap-7">
         <div className="flex fle-row  pt-10 ">
           <img
@@ -120,7 +120,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center pt-12">
+      <div className="flex flex-col justify-center items-center pt-5">
         <h2 className="text-[60px] font-bold wrap-break-word w-[60%] text-center">
           Land your dream job with AI-powered resumes.
         </h2>
@@ -131,7 +131,7 @@ const Hero = () => {
       </div>
       <div className="flex flex-row gap-2 pt-4">
         <div className="flex flex-row gap-2 pt-3 px-5">
-          <button className="bg-green-600 outline-white border-2 border-green-500 px-9  text-white tracking-wider rounded-full text-[14px] py-3 ">
+          <button className="bg-green-400 outline-white border-2 border-green-400 px-9  text-white tracking-wider rounded-full text-[14px] py-3 ">
             Get Started
           </button>
           <button className=" flex flex-row items-center text-[14px] border-2 px-4 rounded-full border-gray-400 text-gray-500 gap-3">
