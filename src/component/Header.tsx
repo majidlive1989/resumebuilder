@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "../img/logo.svg";
+import { useNavigate } from "react-router";
 
 const Header = () => {
+  const changePage = useNavigate();
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-row h-[30px] gap-3  bg-gradient-to-r from-[#ABFF7E] to-[#FDFEFF] justify-center items-center">
@@ -28,7 +30,12 @@ const Header = () => {
           <button className="bg-green-600 text-white tracking-wider rounded-full text-[13px] px-5 active:scale-95">
             Get Started
           </button>
-          <button className="text-[14px] border-2 px-4 rounded-full border-black">
+          <button
+            onClick={() => {
+              changePage("/Login");
+            }}
+            className="text-[14px] border-2 px-4 rounded-full border-black"
+          >
             Login
           </button>
         </div>

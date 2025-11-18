@@ -1,24 +1,72 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import axios from "../api/axios";
+import { useMutation } from "@tanstack/react-query";
 
-const Login = () => {
+const Register = () => {
   const changePage = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      pass: "",
+    },
+  });
+  const { mutate } = useMutation({
+    mutationFn: async (newUser) => {
+      const { data } = await axios.post("/api/users/register", {
+        name: newUser.name,
+        email: newUser.email,
+        pass: newUser.pass,
+      });
+      return data;
+    },
+  });
   return (
     <div>
       <div className="flex flex-col justify-center items-center bg-gray-50 h-screen">
         <form
           className="bg-white w-90 py-10 px-8 justify-center items-center flex flex-col gap-4 border border-gray-300 rounded-xl"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
+          onSubmit={handleSubmit(({ name, email, pass }) => {
+            mutate({ name: name, email, pass });
+          })}
         >
           <div className="flex flex-col justify-center items-center gap-2">
-            <p className="text-gray-900 text-3xl font-medium">Login</p>
+            <p className="text-gray-900 text-3xl font-medium">sing up</p>
             <p className="text-gray-500 primaryTest">
               Please login to continue
             </p>
           </div>
-
+          <div className="flex items-center w-full bg-white border border-gray-300/80 h-12 rounded-full pl-6 gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#6B7280"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="lucide lucide-user-round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="8" r="5"></circle>
+              <path d="M20 21a8 8 0 0 0-16 0"></path>
+            </svg>
+            <input
+              placeholder="Name"
+              className="border-none w-full outline-none primaryTest pr-8"
+              type="text"
+              {...register("name", { required: true })}
+            />
+            {errors.name && <p className="text-red-500">Name Error</p>}
+          </div>
           <div className="flex items-center w-full bg-white border border-gray-300/80 h-12 rounded-full pl-6 gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +88,7 @@ const Login = () => {
               placeholder="Email id "
               className="border-none w-full outline-none primaryTest pr-8"
               type="email"
+              {...register("email", { required: true })}
             />
           </div>
           <div className="flex items-center w-full bg-white border border-gray-300/80 h-12 rounded-full pl-6 gap-2">
@@ -63,6 +112,7 @@ const Login = () => {
               placeholder="Password"
               className="border-none w-full outline-none primaryTest pr-8"
               type="password"
+              {...register("pass", { required: true })}
             />
           </div>
           <p className="text-green-500 text-[12px] self-start cursor-pointer">
@@ -78,7 +128,7 @@ const Login = () => {
             Don't have an account?
             <span
               onClick={() => {
-                changePage("/Register");
+                changePage("/login");
               }}
               className="text-green-500 cursor-pointer hover:border-b"
             >
@@ -91,4 +141,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
