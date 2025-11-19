@@ -8,7 +8,6 @@ import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +22,7 @@ const router = createBrowserRouter([
     element: <Register />,
   },
 ]);
+const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
