@@ -1,8 +1,58 @@
-import React from "react";
+import { useMutation } from "@tanstack/react-query";
+import axios from "../api/axios";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
+interface IUserType {
+  email: string;
+  password: string;
+}
+interface IResponseType {
+  massage: string;
+  token: string;
+  user: {
+    createdAt: string;
+    email: string;
+    name: string;
+    updatedAt: string;
+    __v: string;
+    _id: string;
+  };
+}
 const Login = () => {
   const changePage = useNavigate();
+  const { register, handleSubmit } = useForm<IUserType>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  const { mutate, isSuccess, data } = useMutation<
+    IUserType,
+    Error,
+    IResponseType
+  >({
+    mutationFn: async (newUser: IUserType) => {
+      const { data } = await axios.post("/api/users/login", {
+        email: newUser.email,
+        password: newUser.password,
+      });
+      return data;
+    },
+  });
+  useEffect(() => {
+    if (isSuccess) {
+      localStorage.setItem("token", data.token);
+      changePage("/Dashboard");
+    }
+  }, [isSuccess]);
+
+  useEffect(() => {
+    if (localStorage.getItem("token") !== null) {
+      changePage("/Dashboard");
+    }
+  }, []);
   return (
     <div>
       <div className="flex flex-col justify-center items-center bg-gray-50 h-screen">

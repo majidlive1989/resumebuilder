@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import axios from "../api/axios";
 import { useMutation } from "@tanstack/react-query";
 
+interface IUserType {
+  name: string;
+  email: string;
+  password: string;
+}
 const Register = () => {
   const changePage = useNavigate();
   const {
@@ -14,26 +19,31 @@ const Register = () => {
     defaultValues: {
       name: "",
       email: "",
-      pass: "",
+      password: "",
     },
   });
-  const { mutate } = useMutation({
-    mutationFn: async (newUser) => {
+  const { mutate, isSuccess } = useMutation({
+    mutationFn: async (newUser: IUserType) => {
       const { data } = await axios.post("/api/users/register", {
         name: newUser.name,
         email: newUser.email,
-        pass: newUser.pass,
+        password: newUser.password,
       });
       return data;
     },
   });
+
+  if (isSuccess) {
+    changePage("/Dashboard");
+  }
+
   return (
     <div>
       <div className="flex flex-col justify-center items-center bg-gray-50 h-screen">
         <form
           className="bg-white w-90 py-10 px-8 justify-center items-center flex flex-col gap-4 border border-gray-300 rounded-xl"
-          onSubmit={handleSubmit(({ name, email, pass }) => {
-            mutate({ name: name, email, pass });
+          onSubmit={handleSubmit(({ name, email, password }) => {
+            mutate({ name: name, email, password });
           })}
         >
           <div className="flex flex-col justify-center items-center gap-2">
@@ -112,7 +122,7 @@ const Register = () => {
               placeholder="Password"
               className="border-none w-full outline-none primaryTest pr-8"
               type="password"
-              {...register("pass", { required: true })}
+              {...register("password", { required: true })}
             />
           </div>
           <p className="text-green-500 text-[12px] self-start cursor-pointer">
@@ -122,7 +132,7 @@ const Register = () => {
             type="submit"
             className="cursor-pointer w-full h-11 rounded-full text-white bg-green-500 hover:opacity-90 transition-opacity"
           >
-            Login
+            Register
           </button>
           <p className="text-gray-500 text-[12px]">
             Don't have an account?
