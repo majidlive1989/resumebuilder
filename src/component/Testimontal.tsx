@@ -1,5 +1,6 @@
 import React from "react";
 import Anime_component from "./Anime_component";
+import mj from "../img/75.jpg";
 
 const Testimonials = () => {
   return (
@@ -21,56 +22,56 @@ const Testimonials = () => {
         <div className="absolute left-0 top-0  h-full w-20 z-10 pointer-events-none bg-linear-to-r from-white to-transparent"></div>
         <div className="animeOfComents flex gap-5 transform-gpu min-w-[200%] pt-10 pb-5">
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
@@ -83,56 +84,56 @@ const Testimonials = () => {
         <div className="absolute left-0 top-0  h-full w-20 z-10 pointer-events-none bg-linear-to-r from-white to-transparent"></div>
         <div className="animeOfComents animeReverse flex gap-5 transform-gpu min-w-[200%] pt-10 pb-5">
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >
             Radiant made undercutting all of our competitors an absolute breeze.
           </Anime_component>
           <Anime_component
-            image={}
+            image={mj}
             FullName="Briar Martin"
             Email="@averywrites"
           >

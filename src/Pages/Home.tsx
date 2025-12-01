@@ -5,6 +5,7 @@ import Brands from "../component/Brands";
 import Features from "../component/Features";
 import Footer from "../component/Footer";
 import PreFooter from "../component/PreFooter";
+import Testimonial from "../component/Testimontal";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
         <Brands />
       </div>
       <Features />
+      <Testimonial />
       <PreFooter />
       <Footer />
     </>
