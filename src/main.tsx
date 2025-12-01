@@ -8,6 +8,7 @@ import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
 import Dashboard from "./Pages/Dashboard";
+import Builder from "./Pages/Builder";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
   {
     path: "/Dashboard",
     element: <Dashboard />,
+  },
+
+  {
+    path: "/Builder",
+    element: <Builder />,
   },
 ]);
 const queryClient = new QueryClient();
